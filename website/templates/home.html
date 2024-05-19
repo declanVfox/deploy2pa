@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div>
+
+<h3 align="center">Racecards</h3>
+  {% for user in users %}
+    <b>Created by: </b>{{ user.first_name}}<br/>
+    <hr> 
+    <ul class="list-group list-group-flush" id="runners">
+      {% for runner in runners %}
+        {% if user.id == runner.user_id %}
+          <li class="list-group-item"> 
+            <b>Number: </b>{{runner.id}}<br/>  
+            <b>Name: </b>{{runner.name}}<br/>
+            <b>Rider: </b>{{runner.jockey}}<br/>
+            <b>Trainer: </b>{{ runner.trainer}}<br/>  
+          </li>
+        {% endif %}
+      {% endfor %}
+      <br></br>
+    </ul>
+  {% endfor %}
+{% endblock %}
+</div>

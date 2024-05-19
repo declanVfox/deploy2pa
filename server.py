@@ -1,10 +1,6 @@
-from flask import Flask, url_for, request, redirect, abort 
+from website import create_app
 
-app = Flask(__name__)
+app = create_app()
 
-@app.route('/')
-def index():
-    return "Hello from PythonAnywhere"
-
-if __name__ == "__main__": 
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run() # removed debug = True
